@@ -13,38 +13,38 @@ export function Menu() {
   const pressedConnectWallet = async () => {
     if(isConnected) return alert("Conta já conectada: " + walletAddress)
 
-    const walletResponse = await connectWallet();
-    setIsConnected(walletResponse.connectedStatus);
-    setWallet(walletResponse.address);
+    // const walletResponse = await connectWallet();
+    // setIsConnected(walletResponse.connectedStatus);
+    // setWallet(walletResponse.address);
   }
 
-  const connectWallet = async () => {
-    if(window.ethereum) {
-      try {
-        const address = await window.ethereum.request({
-          method: 'eth_requestAccounts'
-        })
+  // const connectWallet = async () => {
+  //   if(window.ethereum) {
+  //     try {
+  //       const address = await window.ethereum.request({
+  //         method: 'eth_requestAccounts'
+  //       })
 
-        const object = {
-          connectedStatus: true,
-          status: 'Conectado com sucesso',
-          address
-        }
+  //       const object = {
+  //         connectedStatus: true,
+  //         status: 'Conectado com sucesso',
+  //         address
+  //       }
 
-        return object;
-      } catch(err) {
-        return {
-          connectedStatus: false,
-          status: "Erro ao conectar carteira"
-        }
-      }
-    } else {
-      return {
-        connectedStatus: false,
-        status: "Metamask não instalada no navegador"
-      }
-    }
-  }
+  //       return object;
+  //     } catch(err) {
+  //       return {
+  //         connectedStatus: false,
+  //         status: "Erro ao conectar carteira"
+  //       }
+  //     }
+  //   } else {
+  //     return {
+  //       connectedStatus: false,
+  //       status: "Metamask não instalada no navegador"
+  //     }
+  //   }
+  // }
 
   return (
     <MenuContainer>
