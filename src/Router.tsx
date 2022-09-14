@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { DefaultLayout } from "./layouts/defaultLayout";
-import { History } from "./pages/History";
+import { BuyTokens } from "./pages/BuyTokens";
 import { Home } from "./pages/Home";
 
 export function Router() {
@@ -8,7 +8,7 @@ export function Router() {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/history" element={<History />} />
+        <Route path="/buyTokens" element={<BuyTokens />} />
       </Route>
     </Routes>
   );

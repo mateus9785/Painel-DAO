@@ -1,24 +1,12 @@
 import styled from "styled-components";
 
 export const PainelContainer = styled.main`
-  flex: 1;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  border-style: solid;
+  border-radius: 1.125rem;
+  border-width: 5px;
+  border-color: ${(props) => props.theme['yellow-500']};
 
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3.5rem;
-
+  p, h2 {
+    color: ${(props) => props.theme['yellow-500']};
   }
-
-  .ancap-icon {
-    max-width: 12.5rem;
-    max-height: 12.5rem;
-  }
-
 `
