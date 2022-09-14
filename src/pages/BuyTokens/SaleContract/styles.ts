@@ -5,15 +5,21 @@ export const SaleContractContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 
   div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
+    max-width: 31.25rem;
+    height: 100%;
   }
 
   p {
     color: ${(props) => props.theme['yellow-500']};
+  }
+
+  .address{
+    gap: 1.25rem;
   }
 `

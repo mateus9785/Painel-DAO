@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const MenuContainer = styled.div`
+export const MenuContainer = styled.main`
   flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;

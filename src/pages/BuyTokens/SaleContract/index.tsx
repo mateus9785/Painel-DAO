@@ -15,7 +15,7 @@ export function SaleContract() {
           tokens with special functions like autoLP, swaps, etc.)
         </p>
       </div>
-      <div>
+      <div className="address">
         <img src={qrCode} alt="" />
         <p>0xa01155d58BeDa10E763d0E79fA91d4f2De828D93</p>
         <TinyButtonComponent text={"Copy"}></TinyButtonComponent>

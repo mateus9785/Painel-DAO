@@ -6,8 +6,6 @@ interface TinyButtonInterface {
 
 export function TinyButtonComponent({ text } : TinyButtonInterface) {
   return (
-    <TinyButtonContainer>
-      <p>{text}</p>
-    </TinyButtonContainer>
+    <TinyButtonContainer>{text}</TinyButtonContainer>
   );
 }

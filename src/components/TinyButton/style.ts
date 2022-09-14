@@ -9,7 +9,7 @@ export const TinyButtonContainer = styled.button`
     padding: 0.1rem 1.5rem;
     text-transform: uppercase;
     color: ${(props) => props.theme['black-500']};
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 30px;
 `

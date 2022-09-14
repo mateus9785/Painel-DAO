@@ -8,6 +8,7 @@ export const PainelContainer = styled.div`
   height: 100%;
 
   padding: 3rem;
+  margin: 3rem;
   border-style: solid;
   border-radius: 3rem;
   border-width: 0.1875rem;
