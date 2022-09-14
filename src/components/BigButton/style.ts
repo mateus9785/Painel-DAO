@@ -8,7 +8,7 @@ export const BigButtonContainer = styled.button`
 
     border-radius: 1.125rem;
     border: none;
-    padding: 2rem 3rem;
+    padding: 2rem 5rem;
     max-width: 25rem;
     width: 100%;
 
@@ -18,12 +18,7 @@ export const BigButtonContainer = styled.button`
     font-weight: 400;
     line-height: 30px;
 
-    p{
-        background-color: red;
-    }
-
     img{
-        background-color: red;
         max-width: 2rem;
         max-height: 2rem;
     }

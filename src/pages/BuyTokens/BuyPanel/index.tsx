@@ -1,5 +1,6 @@
 import { SmallButtonComponent } from "./../../../components/SmallButton";
 import { DarkInputComponent } from "./../../../components/DarkInput";
+import { BigTitleComponent } from "./../../../components/BigTitle";
 
 import {
   BuyPanelContainer
@@ -8,11 +9,13 @@ import {
 export function BuyPanel() {
   return (
     <BuyPanelContainer>
-      <h2>Buy Tokens</h2>
+      <BigTitleComponent text="Buy Tokens"/>
       <form>
         <DarkInputComponent text={"Spend"}></DarkInputComponent>
         <DarkInputComponent text={"Receive"}></DarkInputComponent>
-        <SmallButtonComponent text={"Buy"}></SmallButtonComponent>
+        <div>
+          <SmallButtonComponent text={"Buy"}></SmallButtonComponent>
+        </div>
       </form>
     </BuyPanelContainer>
   );
