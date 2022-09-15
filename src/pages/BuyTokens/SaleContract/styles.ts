@@ -13,6 +13,10 @@ export const SaleContractContainer = styled.div`
     align-items: center;
     max-width: 31.25rem;
     height: 100%;
+
+    @media (max-width: 1000px) {
+      max-width: 29rem;
+    }
   }
 
   p {
@@ -21,5 +25,17 @@ export const SaleContractContainer = styled.div`
 
   .address{
     gap: 1.25rem;
+    img {
+
+      @media (max-width: 1000px) {
+        width: 300px;
+        height: 300px;
+      }
+
+      @media (max-width: 800px) {
+        width: 150px;
+        height: 150px;
+      }
+    }
   }
 `

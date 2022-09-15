@@ -18,20 +18,30 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
         html {
-            font-size: 90%;
-            font-size: 80%;
-            font-size: 70%;
-            font-size: 60%;
-            font-size: 50%;
-            font-size: 40%;
-            font-size: 30%;
-            font-size: 20%;
-            font-size: 10%;
+            font-size: 87.5%;
         }
         .wrapper {
             grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        html {
+            font-size: 80%;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        html {
+            font-size: 70%;
+        }
+    }
+
+    @media (max-width: 950px) {
+        html {
+            font-size: 65%;
         }
     }
 `

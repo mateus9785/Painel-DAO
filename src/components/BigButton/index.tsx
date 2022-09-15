@@ -8,7 +8,7 @@ interface BigButtonInterface {
 
 export function BigButtonComponent({ text, icon, functionOnClick } : BigButtonInterface) {
   return (
-    <BigButtonContainer onClick={functionOnClick()}>
+    <BigButtonContainer onClick={(e) =>functionOnClick(e)}>
       {text}
       <img src={icon}></img>
     </BigButtonContainer>

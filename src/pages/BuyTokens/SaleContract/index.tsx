@@ -16,7 +16,7 @@ export function SaleContract() {
         </p>
       </div>
       <div className="address">
-        <img src={qrCode} alt="" />
+        <img src={qrCode} />
         <p>0xa01155d58BeDa10E763d0E79fA91d4f2De828D93</p>
         <TinyButtonComponent text={"Copy"}></TinyButtonComponent>
       </div>

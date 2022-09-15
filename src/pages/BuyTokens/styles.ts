@@ -8,4 +8,8 @@ export const BuyTokensContainer = styled.main`
   margin: 2rem;
 
   height: 100%;
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+  }
 `

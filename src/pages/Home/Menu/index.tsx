@@ -10,41 +10,23 @@ export function Menu() {
   const [isConnected, setIsConnected] = useState(false);
   const [walletAddress, setWallet] = useState('');
 
-  const pressedConnectWallet = async () => {
-    if(isConnected) return alert("Conta já conectada: " + walletAddress)
+  async function connectWallet(event : Event) {
+    event.preventDefault();
 
-    // const walletResponse = await connectWallet();
-    // setIsConnected(walletResponse.connectedStatus);
-    // setWallet(walletResponse.address);
+    if(window.ethereum) {
+      try {
+        const address = await window.ethereum.request({
+          method: 'eth_requestAccounts'
+        })
+
+        console.log(address);
+      } catch(err) {
+
+      }
+    } else {
+
+    }
   }
-
-  // const connectWallet = async () => {
-  //   if(window.ethereum) {
-  //     try {
-  //       const address = await window.ethereum.request({
-  //         method: 'eth_requestAccounts'
-  //       })
-
-  //       const object = {
-  //         connectedStatus: true,
-  //         status: 'Conectado com sucesso',
-  //         address
-  //       }
-
-  //       return object;
-  //     } catch(err) {
-  //       return {
-  //         connectedStatus: false,
-  //         status: "Erro ao conectar carteira"
-  //       }
-  //     }
-  //   } else {
-  //     return {
-  //       connectedStatus: false,
-  //       status: "Metamask não instalada no navegador"
-  //     }
-  //   }
-  // }
 
   return (
     <MenuContainer>
@@ -54,7 +36,7 @@ export function Menu() {
         </div>
         <div className="buttons-container">
           <BigButtonComponent
-            functionOnClick={pressedConnectWallet}
+            functionOnClick={connectWallet}
             icon={logoMetamask}
             text={"Metamask"}
           />

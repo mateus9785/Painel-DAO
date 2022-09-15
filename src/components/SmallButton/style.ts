@@ -6,7 +6,7 @@ export const SmallButtonContainer = styled.button`
     text-align: center;
     border-radius: 1.3125rem;
     border: none;
-    padding: 1rem 4.5rem;
+    padding: 0.7rem 4rem;
     text-transform: uppercase;
     color: ${(props) => props.theme['black-500']};
     font-size: 1.5rem;

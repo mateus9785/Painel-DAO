@@ -1,4 +1,5 @@
 import { LittleTitleComponent } from "./../../../components/LittleTitle";
+import { LabelDynamicComponent } from "./../../../components/LabelDynamic";
 import { PainelContainer } from "./styles";
 
 export function Painel() {
@@ -6,10 +7,10 @@ export function Painel() {
     <PainelContainer>
         <LittleTitleComponent text={"Token Status"}></LittleTitleComponent>
         <div>
-          <p>Raised: of BNB</p>
-          <p>Tokens Sold: of Remaining</p>
-          <p>Hardcap: BnB</p>
-          <p>Rate: 1 BnB = (~ BNB/)</p>
+          <LabelDynamicComponent label={"Raised"} text={"of BNB"}></LabelDynamicComponent>
+          <LabelDynamicComponent label={"Tokens Sold"} text={"of Remaining"}></LabelDynamicComponent>
+          <LabelDynamicComponent label={"Hardcap"} text={"BNB"}></LabelDynamicComponent>
+          <LabelDynamicComponent label={"Rate"} text={"1 BNB = (~ BNB/)"}></LabelDynamicComponent>
         </div>
     </PainelContainer>
   );

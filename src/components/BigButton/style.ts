@@ -8,7 +8,7 @@ export const BigButtonContainer = styled.button`
 
     border-radius: 1.125rem;
     border: none;
-    padding: 2rem 5rem;
+    padding: 1.5rem 3rem;
     max-width: 25rem;
     width: 100%;
 
