@@ -11,15 +11,15 @@ export const BigButtonContainer = styled.button`
     padding: 1.5rem 3rem;
     max-width: 25rem;
     width: 100%;
+    cursor: pointer;
+    transition: filter 0.2s;
+    &:hover{
+        filter: brightness(0.8)
+    }
 
     text-transform: uppercase;
     color: ${(props) => props.theme['black-500']};
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 30px;
-
-    img{
-        max-width: 2rem;
-        max-height: 2rem;
-    }
 `

@@ -1,11 +1,12 @@
 import { TinyButtonContainer } from "./style";
 
 interface TinyButtonInterface {
-    text: String
+    text: String,
+    functionOnClick: Function
 }
 
-export function TinyButtonComponent({ text } : TinyButtonInterface) {
+export function TinyButtonComponent({ text, functionOnClick } : TinyButtonInterface) {
   return (
-    <TinyButtonContainer>{text}</TinyButtonContainer>
+    <TinyButtonContainer onClick={(e) =>functionOnClick(e)}>{text}</TinyButtonContainer>
   );
 }

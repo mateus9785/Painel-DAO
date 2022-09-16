@@ -12,4 +12,9 @@ export const SmallButtonContainer = styled.button`
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 30px;
+    cursor: pointer;
+    transition: filter 0.2s;
+    &:hover{
+        filter: brightness(0.8)
+    }
 `

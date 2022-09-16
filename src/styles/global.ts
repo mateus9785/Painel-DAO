@@ -18,30 +18,25 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
     }
 
-    @media (max-width: 1400px) {
+    @media ((max-width: 850px) or (max-height: 850px)) {
         html {
-            font-size: 87.5%;
-        }
-        .wrapper {
-            grid-template-columns: 1fr;
+            font-size: 85%;
         }
     }
 
-    @media (max-width: 1200px) {
-        html {
-            font-size: 80%;
-        }
-    }
-
-    @media (max-width: 1100px) {
+    @media ((max-width: 550px) or (max-height: 700px)) {
         html {
             font-size: 70%;
         }
     }
 
-    @media (max-width: 950px) {
+    /* @media (max-width: 1400px) {
         html {
-            font-size: 65%;
+            font-size: 87.5%;
         }
-    }
+
+        .wrapper {
+            grid-template-columns: 1fr 250px;
+        }
+    } */
 `

@@ -6,7 +6,7 @@ export const LayoutContainer = styled.div`
 
   background: ${(props) => props.theme['black-500']};
   border-radius: 3.125rem;
-  box-shadow: -0.9375rem 0.9375rem ${(props) => props.theme['gray-500']};
+  box-shadow: -0.9375rem 0.9375rem rgba(0,0,0,0.5);
 
   display: flex;
   flex-direction: column;
@@ -14,23 +14,15 @@ export const LayoutContainer = styled.div`
 
   margin: 5rem 10rem;
 
-  @media (max-width: 1400px) {
-    margin: 4rem 8rem;
-  }
-
-  @media (max-width: 1200px) {
+  @media ((max-width: 1000px) or (max-height: 850px)) {
     margin: 3rem 6rem;
   }
 
+  @media ((max-width: 750px) or (max-height: 800px)) {
+    margin: 2rem 4rem;
+  }
+
   @media (max-width: 550px) {
-    margin: 1rem 3rem;
-  }
-
-  @media (max-width: 450px) {
-    margin: 1rem 1rem;
-  }
-
-  @media (max-width: 350px) {
-    margin: 0.5rem 0.5rem;
+    margin: 1rem 2rem;
   }
 `

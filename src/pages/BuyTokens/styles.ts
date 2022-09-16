@@ -9,7 +9,7 @@ export const BuyTokensContainer = styled.main`
 
   height: 100%;
 
-  @media (max-width: 830px) {
+  /* @media (max-width: 830px) {
     flex-direction: column;
-  }
+  } */
 `
