@@ -4,6 +4,7 @@ export const BigTitleContainer = styled.h2`
     text-transform: uppercase;
     color: ${(props) => props.theme['yellow-500']};
     font-size: 3.125rem;
+    text-align: center;
 
     @media ((max-width: 550px)  or (max-height: 850px)) {
         font-size: 2.5rem;

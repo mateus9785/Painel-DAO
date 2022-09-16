@@ -22,4 +22,10 @@ export const BigButtonContainer = styled.button`
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 30px;
+    text-align: center;
+
+    @media ((max-width: 550px)  or (max-height: 850px)) {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
 `
