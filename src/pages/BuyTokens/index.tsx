@@ -84,15 +84,18 @@ export function BuyTokens() {
         }
       }
     } else {
+      const title = translateText("pages.buyTokens.alerts.dontHaveWallet.title");
+      const footer = `<a style="color: #F3BF22" href="https://metamask.io/download.html">${translateText("pages.buyTokens.alerts.dontHaveWallet.footer")}</a>`;
+
       Swal.fire({
         icon: 'question',
-        title: translateText("pages.buyTokens.alerts.dontHaveWallet.title"),
-        text: `${translateText("pages.buyTokens.alerts.dontHaveWallet.text")}<a href="https://metamask.io/download.html">${translateText("pages.buyTokens.alerts.dontHaveWallet.link")}</a>`,
+        title,
         background: "#27262c",
         color: "#F3BF22",
         confirmButtonColor: '#F3BF22',
         showCloseButton: true,
         confirmButtonText: '<span style="color: #27262c">OK</span>',
+        footer,
       });
     }
   }

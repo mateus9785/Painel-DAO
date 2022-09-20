@@ -20,8 +20,7 @@ export default {
                 },
                 "dontHaveWallet": {
                     "title": "Você não possui a Metamask instalada no seu computador!",
-                    "text": "Instale a Metamask no seu browser:",
-                    "link": "Baixe aqui"
+                    "footer": "Como instalar a Metamask?"
                 },
                 "successfultrading": {
                     "title": "Su transacción fue exitosa",
