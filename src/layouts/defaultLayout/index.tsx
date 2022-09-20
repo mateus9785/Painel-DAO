@@ -1,13 +1,16 @@
-import { Outlet } from "react-router-dom";
 import { LayoutContainer } from "./styles";
 import { Header } from "./../header";
 import { Footer } from "./../footer";
 
-export function DefaultLayout() {
+interface DefaultLayoutInterface {
+  children: React.ReactNode
+}
+
+export function DefaultLayout({ children } : DefaultLayoutInterface) {
   return (
     <LayoutContainer>
       <Header/>
-      <Outlet />
+        {children}
       <Footer/>
     </LayoutContainer>
   );

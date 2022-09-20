@@ -6,10 +6,8 @@ import { SaleContract } from "./pages/SaleContract";
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/buyTokens" element={<BuyTokens />} />
-        <Route path="/saleContract" element={<SaleContract />} />
-      </Route>
+      <Route path="/" element={<BuyTokens />} />
+      <Route path="/saleContract" element={<SaleContract />} />
     </Routes>
   );
 }
