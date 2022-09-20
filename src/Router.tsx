@@ -7,7 +7,7 @@ export function Router() {
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<BuyTokens />} />
+        <Route path="/buyTokens" element={<BuyTokens />} />
         <Route path="/saleContract" element={<SaleContract />} />
       </Route>
     </Routes>

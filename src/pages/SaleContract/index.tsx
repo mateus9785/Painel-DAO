@@ -1,14 +1,11 @@
 import qrCode from "./../../assets/qr-code.svg";
-import { ArrowCircleLeft } from "phosphor-react";
 import { BigTitleComponent } from "./../../components/BigTitle";
 import { TinyButtonComponent } from "./../../components/TinyButton";
 import { SaleContractContainer } from "./styles";
-import { useNavigate } from 'react-router-dom';
 import translateText from "./../../common/translateText";
 import { Link } from "react-router-dom";
 
 export function SaleContract() {
-  const navigate = useNavigate();
   const address = "0xa01155d58BeDa10E763d0E79fA91d4f2De828D93";
   const addressMiddle = Math.round(address.length / 2);
 
