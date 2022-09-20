@@ -38,7 +38,17 @@ export function BuyTokens() {
   async function connectWallet(event : any) {
     event.preventDefault();
 
-    if(window.ethereum) {
+    if (window.ethereum) {
+      await handleEthereum();
+    } else {
+      window.addEventListener('ethereum#initialized', await handleEthereum, { once: true, });
+    
+      setTimeout(handleEthereum, 3000);
+    }
+  }
+
+  async function handleEthereum() {
+    if(window.ethereum  && window.ethereum.isMetaMask) {
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         setIsConnected(true);
@@ -97,7 +107,7 @@ export function BuyTokens() {
         confirmButtonText: '<span style="color: #27262c">OK</span>',
         footer,
       });
-    }
+    }    
   }
 
   return (
