@@ -85,7 +85,7 @@ export function BuyTokens() {
       }
     } else {
       const title = translateText("pages.buyTokens.alerts.dontHaveWallet.title");
-      const footer = `<a style="color: #F3BF22" href="https://metamask.io/download.html">${translateText("pages.buyTokens.alerts.dontHaveWallet.footer")}</a>`;
+      const footer = `<a style="color: #F3BF22" target="_blank" href="https://metamask.io/download.html">${translateText("pages.buyTokens.alerts.dontHaveWallet.footer")}</a>`;
 
       Swal.fire({
         icon: 'question',

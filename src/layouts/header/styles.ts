@@ -51,6 +51,11 @@ export const HeaderContainer = styled.header`
     }
 
     .icon-header{
+        cursor: pointer;
+        transition: filter 0.2s;
+        &:hover{
+            filter: brightness(0.8)
+        }
         width: 2.5rem;
         height: 2.5rem;
     }

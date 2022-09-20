@@ -46,6 +46,9 @@ export default {
             },
             "buttons": {
                 "copy": "Copiar"
+            },
+            "link": {
+                "inicialPage": "Voltar"
             }
         }
     }

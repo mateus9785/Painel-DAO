@@ -5,6 +5,7 @@ import { TinyButtonComponent } from "./../../components/TinyButton";
 import { SaleContractContainer } from "./styles";
 import { useNavigate } from 'react-router-dom';
 import translateText from "./../../common/translateText";
+import { Link } from "react-router-dom";
 
 export function SaleContract() {
   const navigate = useNavigate();
@@ -13,9 +14,6 @@ export function SaleContract() {
 
   return (
     <SaleContractContainer>
-      <button className="button-left" onClick={() => navigate('/')}>
-        <ArrowCircleLeft className="icon-circle-left" color={"#F3BF22"}/>
-      </button>
       <BigTitleComponent text={translateText("pages.saleContract.texts.saleContract")}/>
       <p>{translateText("pages.saleContract.texts.aboutTransation")}</p>
       <img src={qrCode} />
@@ -27,6 +25,7 @@ export function SaleContract() {
         functionOnClick={() => {navigator.clipboard.writeText(address)}} 
         text={translateText("pages.saleContract.buttons.copy")}
       />
+      <Link to="/" className="link-buy-tokens">{translateText("pages.saleContract.link.inicialPage")}</Link>
     </SaleContractContainer>
   );
 }

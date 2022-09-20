@@ -46,6 +46,9 @@ export default {
             },
             "buttons": {
                 "copy": "Copy"
+            },
+            "link": {
+                "inicialPage": "Come back"
             }
         }
     }

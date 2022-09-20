@@ -27,6 +27,15 @@ export const SaleContractContainer = styled.main`
     height: 2.5rem;
   }
 
+  .link-buy-tokens{
+    text-decoration: none;
+    color: ${(props) => props.theme['grey-800']};
+    transition: filter 0.2s;
+    &:hover{
+        filter: brightness(0.7)
+    }
+  }
+
   @media ((max-width: 850px) or (max-height: 900px)) {
     img {
         width: 300px;
