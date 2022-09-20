@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
     body{
         background: ${(props) => props.theme['yellow-500']};
         -webkit-font-smoothing: antialiased;
+
+        @media (max-width: 400px) {
+            background: ${(props) => props.theme['black-500']};
+        }
     }
 
     body, input, textarea, button{
@@ -24,19 +28,9 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
-    @media ((max-width: 550px) or (max-height: 700px)) {
+    @media ((max-width: 650px) or (max-height: 700px)) {
         html {
             font-size: 70%;
         }
     }
-
-    /* @media (max-width: 1400px) {
-        html {
-            font-size: 87.5%;
-        }
-
-        .wrapper {
-            grid-template-columns: 1fr 250px;
-        }
-    } */
 `

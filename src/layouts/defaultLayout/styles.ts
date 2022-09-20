@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LayoutContainer = styled.div` 
-  height: calc(100vh - 10rem);
+  height: calc(110vh - 10rem);
   padding: 2.5rem;
 
   background: ${(props) => props.theme['black-500']};
@@ -12,7 +12,7 @@ export const LayoutContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  margin: 5rem 10rem;
+  margin: 3rem 10rem;
 
   @media ((max-width: 1000px) or (max-height: 850px)) {
     margin: 3rem 6rem;
@@ -24,5 +24,11 @@ export const LayoutContainer = styled.div`
 
   @media (max-width: 550px) {
     margin: 1rem 2rem;
+  }
+
+  @media (max-width: 400px) {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 `

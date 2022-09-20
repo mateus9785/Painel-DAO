@@ -14,7 +14,13 @@ export const SmallButtonContainer = styled.button`
     line-height: 30px;
     cursor: pointer;
     transition: filter 0.2s;
-    &:hover{
-        filter: brightness(0.8)
+
+    @media ((max-width: 650px)) {
+        padding: 0.7rem 2rem;
+    }
+
+    @media ((max-width: 400px)) {
+        padding: 0.7rem 2rem;
+        font-size: 1rem;
     }
 `

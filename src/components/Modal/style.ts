@@ -33,7 +33,6 @@ export const ModalContainer = styled.div`
    .modal-header{
         padding: 10px;
         height: 20%;
-        background-color: linear-gradient(139.73deg,#313d5c,#3d2a54);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -48,6 +47,7 @@ export const ModalContainer = styled.div`
         padding: 10px;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
    .button-close {

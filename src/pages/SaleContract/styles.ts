@@ -22,6 +22,11 @@ export const SaleContractContainer = styled.main`
     align-self: flex-start;
   }
 
+  .icon-circle-left{
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
   @media ((max-width: 850px) or (max-height: 900px)) {
     img {
         width: 300px;
