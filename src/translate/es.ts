@@ -19,7 +19,7 @@ export default {
                     "text": "Ocurrió un error al conectarse a Metamask"
                 },
                 "dontHaveWallet": {
-                    "title": "¡No tienes Metamask instalado en tu computadora!",
+                    "title": "¡No tienes Metamask instalado en tu dispositivo!",
                     "footer": "¿Cómo instalar Metamask?"
                 },
                 "successfultrading": {

@@ -10,6 +10,7 @@ import { DarkInputComponent } from "./../../components/DarkInput";
 import { SmallButtonComponent } from "./../../components/SmallButton";
 import { ModalComponent } from "./../../components/Modal";
 import translateText from "./../../common/translateText";
+import detectEthereumProvider from '@metamask/detect-provider'
 
 const errorStatus = {
   alreadyProcessing: -32002,
@@ -38,19 +39,12 @@ export function BuyTokens() {
   async function connectWallet(event : any) {
     event.preventDefault();
 
-    if (window.ethereum) {
-      await handleEthereum();
-    } else {
-      window.addEventListener('ethereum#initialized', await handleEthereum, { once: true, });
-    
-      setTimeout(handleEthereum, 3000);
-    }
-  }
+    const provider = await detectEthereumProvider()
 
-  async function handleEthereum() {
-    if(window.ethereum  && window.ethereum.isMetaMask) {
+    if(provider) {
       try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const addresses = await provider.request({ method: "eth_requestAccounts" });
+        console.log(addresses)
         setIsConnected(true);
         setIsOpen(false);
 
@@ -107,7 +101,7 @@ export function BuyTokens() {
         confirmButtonText: '<span style="color: #27262c">OK</span>',
         footer,
       });
-    }    
+    }
   }
 
   return (
