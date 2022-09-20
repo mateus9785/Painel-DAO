@@ -10,7 +10,6 @@ import { DarkInputComponent } from "./../../components/DarkInput";
 import { SmallButtonComponent } from "./../../components/SmallButton";
 import { ModalComponent } from "./../../components/Modal";
 import translateText from "./../../common/translateText";
-import detectEthereumProvider from '@metamask/detect-provider'
 
 const errorStatus = {
   alreadyProcessing: -32002,
@@ -39,12 +38,9 @@ export function BuyTokens() {
   async function connectWallet(event : any) {
     event.preventDefault();
 
-    const provider = await detectEthereumProvider()
-
-    if(provider) {
+    if(window.ethereum) {
       try {
-        const addresses = await provider.request({ method: "eth_requestAccounts" });
-        console.log(addresses)
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
         setIsConnected(true);
         setIsOpen(false);
 
