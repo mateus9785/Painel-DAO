@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { isDesktop, isMobile } from "react-device-detect";
 import logoMetamask from "./../../assets/logo-metamask.svg";
 import logoRbtc from "./../../assets/logo-rbtc.png";
 import logoAncap from "./../../assets/logo-ancap.svg";
@@ -39,7 +40,7 @@ export function BuyTokens() {
   async function connectWallet(event : any) {
     event.preventDefault();
 
-    if(window.ethereum) {
+    if(typeof window !== "undefined" && Boolean(window.ethereum?.isMetaMask)) {
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         setIsConnected(true);
@@ -86,7 +87,7 @@ export function BuyTokens() {
       }
     } else {
       const title = translateText("pages.buyTokens.alerts.dontHaveWallet.title");
-      const footer = `<a style="color: #F3BF22" target="_blank" href="https://metamask.io/download.html">${translateText("pages.buyTokens.alerts.dontHaveWallet.footer")}</a>`;
+      const footer = `<a style="color: #F3BF22" target="_blank" href="https://metamask.app.link/dapp/dao-type.vercel.app/">${translateText("pages.buyTokens.alerts.dontHaveWallet.footer")}</a>`;
 
       Swal.fire({
         icon: 'question',
