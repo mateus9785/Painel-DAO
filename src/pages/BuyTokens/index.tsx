@@ -40,7 +40,20 @@ export function BuyTokens() {
   async function connectWallet(event : any) {
     event.preventDefault();
 
-    if(typeof window !== "undefined" && Boolean(window.ethereum?.isMetaMask)) {
+    if (window.ethereum) {
+      await handleEthereum();
+    } else {
+      window.addEventListener('ethereum#initialized', await handleEthereum, {
+        once: true,
+      });
+    
+      setTimeout(await handleEthereum, 3000);
+    }
+    
+  }
+
+  async function handleEthereum(){
+    if(window.ethereum && window.ethereum.isMetaMask) {
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         setIsConnected(true);
@@ -87,7 +100,7 @@ export function BuyTokens() {
       }
     } else {
       const title = translateText("pages.buyTokens.alerts.dontHaveWallet.title");
-      const footer = `<a style="color: #F3BF22" target="_blank" href="https://metamask.app.link/dapp/dao-type.vercel.app/">${translateText("pages.buyTokens.alerts.dontHaveWallet.footer")}</a>`;
+      const footer = `<a style="color: #F3BF22" target="_blank" href="https://metamask.io/download.html">${translateText("pages.buyTokens.alerts.dontHaveWallet.footer")}</a>`;
 
       Swal.fire({
         icon: 'question',
