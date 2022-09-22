@@ -1,7 +1,6 @@
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { isDesktop, isMobile } from "react-device-detect";
 import logoMetamask from "./../../assets/logo-metamask.svg";
 import logoRbtc from "./../../assets/logo-rbtc.png";
 import logoAncap from "./../../assets/logo-ancap.svg";
@@ -40,7 +39,7 @@ export function BuyTokens() {
   async function connectWallet(event : any) {
     event.preventDefault();
   
-    if(window.ethereum || (isMobile && !window.ethereum )) {
+    if(window.ethereum) {
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         setIsConnected(true);
