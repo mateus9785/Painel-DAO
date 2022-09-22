@@ -39,21 +39,8 @@ export function BuyTokens() {
 
   async function connectWallet(event : any) {
     event.preventDefault();
-
-    if (window.ethereum) {
-      await handleEthereum();
-    } else {
-      window.addEventListener('ethereum#initialized', await handleEthereum, {
-        once: true,
-      });
-    
-      setTimeout(await handleEthereum, 3000);
-    }
-    
-  }
-
-  async function handleEthereum(){
-    if(window.ethereum && window.ethereum.isMetaMask) {
+  
+    if(window.ethereum || (isMobile && !window.ethereum )) {
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         setIsConnected(true);
@@ -114,6 +101,7 @@ export function BuyTokens() {
       });
     }
   }
+
 
   return (
     <DefaultLayout>
