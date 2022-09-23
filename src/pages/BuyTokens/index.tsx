@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import logoMetamask from "./../../assets/logo-metamask.svg";
 import logoRbtc from "./../../assets/logo-rbtc.png";
@@ -10,6 +10,7 @@ import { DarkInputComponent } from "./../../components/DarkInput";
 import { SmallButtonComponent } from "./../../components/SmallButton";
 import { ModalComponent } from "./../../components/Modal";
 import translateText from "./../../common/translateText";
+import { switchRskChain, addRskChain, connectMetamask, sendTransaction } from "./../../common/walletMethods";
 import { DefaultLayout } from "./../../layouts/defaultLayout";
 
 const errorStatus = {
@@ -19,21 +20,90 @@ const errorStatus = {
 
 export function BuyTokens() {
   const [isConnected, setIsConnected] = useState(false);
+  const [chainAdd, setChainAdd] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    initialConnection();
+  }, [])
+
+  async function initialConnection() {
+    try {
+      const address = await connectMetamask();
+      if(address) {
+        setIsConnected(true);
+      }
+      await switchRskChain();
+      setChainAdd(true);
+    } catch (error) {
+
+    }
+  }
   
+  async function registerNetwork(event : any) {
+    event.preventDefault();
+
+    try {
+      await switchRskChain();
+      setChainAdd(true);
+    } catch (error : any) {
+      if (error.code === 4902) {
+        try {
+          await addRskChain();
+          setChainAdd(true);
+        } catch (addError : any) {
+          switch (addError.code) {
+            case errorStatus.userRejected:
+              Swal.fire({
+                icon: 'warning',
+                title: translateText("pages.buyTokens.alerts.userRejected.title"),
+                text: translateText("pages.buyTokens.alerts.userRejected.text"),
+                background: "#27262c",
+                color: "#F3BF22",
+                confirmButtonColor: '#F3BF22',
+                showCloseButton: true,
+                confirmButtonText: '<span style="color: #27262c">OK</span>',
+              });
+              break;
+          }
+        }
+      }
+
+    }
+  }
+
   async function buyTokens(event : any) {
     event.preventDefault();
 
-    Swal.fire({
-      icon: 'success',
-      title: translateText("pages.buyTokens.alerts.successfultrading.title"),
-      text: translateText("pages.buyTokens.alerts.successfultrading.text"),
-      background: "#27262c",
-      color: "#F3BF22",
-      confirmButtonColor: '#F3BF22',
-      showCloseButton: true,
-      confirmButtonText: '<span style="color: #27262c">OK</span>',
-    });
+    try {
+      await sendTransaction('0x00');
+
+      Swal.fire({
+        icon: 'success',
+        title: translateText("pages.buyTokens.alerts.successfultrading.title"),
+        text: translateText("pages.buyTokens.alerts.successfultrading.text"),
+        background: "#27262c",
+        color: "#F3BF22",
+        confirmButtonColor: '#F3BF22',
+        showCloseButton: true,
+        confirmButtonText: '<span style="color: #27262c">OK</span>',
+      });
+    } catch (error : any) {
+      switch (error.code) {
+        case errorStatus.userRejected:
+          Swal.fire({
+            icon: 'warning',
+            title: translateText("pages.buyTokens.alerts.userRejected.title"),
+            text: translateText("pages.buyTokens.alerts.userRejected.text"),
+            background: "#27262c",
+            color: "#F3BF22",
+            confirmButtonColor: '#F3BF22',
+            showCloseButton: true,
+            confirmButtonText: '<span style="color: #27262c">OK</span>',
+          });
+          break;
+      }
+    }
   }
 
   async function connectWallet(event : any) {
@@ -41,7 +111,7 @@ export function BuyTokens() {
   
     if(window.ethereum) {
       try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        await connectMetamask();
         setIsConnected(true);
         setIsOpen(false);
 
@@ -134,16 +204,27 @@ export function BuyTokens() {
             <DarkInputComponent text={translateText("pages.buyTokens.inputs.receive")}></DarkInputComponent>
           </div>
           {
-            !isConnected ? (
+            !isConnected && (
               <SmallButtonComponent
                 functionOnClick={() => setIsOpen(true)}
                 text={translateText("pages.buyTokens.buttons.connectWallet")}
               />
-              ) : (
-                <SmallButtonComponent 
-                  text={translateText("pages.buyTokens.buttons.buy")} 
-                  functionOnClick={buyTokens}
-                />
+            )
+          }
+          {
+            isConnected && !chainAdd && (
+              <SmallButtonComponent 
+                text={translateText("pages.buyTokens.buttons.addRskChain")} 
+                functionOnClick={registerNetwork}
+              />
+            )
+          }
+          {
+            isConnected && chainAdd && (
+              <SmallButtonComponent 
+                text={translateText("pages.buyTokens.buttons.buy")} 
+                functionOnClick={buyTokens}
+              />
             )
           }
           <Link to="/saleContract" className="link-sale-contract">{translateText("pages.buyTokens.link.advancedPurchase")}</Link>

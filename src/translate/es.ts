@@ -12,7 +12,7 @@ export default {
                 },
                 "userRejected": {
                     "title": "Aviso",
-                    "text": "La solicitud de conexión enviada a Metamask fue rechazada, por favor envíela nuevamente"
+                    "text": "La solicitud enviada a Metamask fue rechazada, por favor envíela nuevamente"
                 },
                 "default": {
                     "title": "Error",
@@ -34,6 +34,7 @@ export default {
             "buttons": {
                 "connectWallet": "Conectar cartera",
                 "buy": "Comprar",
+                "addRskChain": "Agregar RSK a la cartera",
             },
             "link": {
                 "advancedPurchase": "Compra avanzado con Contrato Inteligente"

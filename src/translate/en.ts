@@ -12,7 +12,7 @@ export default {
                 },
                 "userRejected": {
                     "title": "Caution",
-                    "text": "The connection request sent to Metamask was rejected, please send it again"
+                    "text": "The request sent to Metamask was rejected, please send it again"
                 },
                 "default": {
                     "title": "Error",
@@ -34,6 +34,7 @@ export default {
             "buttons": {
                 "connectWallet": "Connect Wallet",
                 "buy": "Buy",
+                "addRskChain": "Add RSK to Wallet",
             },
             "link": {
                 "advancedPurchase": "Advanced purchase with smart contract"
